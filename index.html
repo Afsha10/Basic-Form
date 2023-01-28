@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <form action="results.html" method="get" enctype="multipart/form-data">
+        <div>
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" placeholder="username" required>
+            <!-- value property,value="" means anything we set wil be the default value for that property. It goes back to the default value after clicking reset button -->
+            <!-- required attribute forces the user to enter this information. It gives users error message if they submit empty field. -->
+        </div>
+        <div>
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" required>
+            <!-- input type="email" is going to verify or validate email addresses for us by default -->
+        </div>
+        <div>
+            <label for="age">Age:</label>
+        <input type="number" name="age" id="age" min="1" max="200" step="3">
+        <!-- age must be great than the minimum age we specified as minimum and less thant he age we sepecified as maximum -->
+        <!-- step="3" means it is going increase or decrease by 3  -->
+        </div>
+        <div>
+            <label for="date">Birthdate:</label>
+            <input type="date" name="date" id="date" min="2019-06-10">
+        </div>
+        <div>
+            <!-- Here we are creating check boxes -->
+            <!-- With checkboxes we can select as many or as little as we want -->
+            Favourite food:
+            <div>
+                <label for="banana">Banana</label>
+                <input type="checkbox" name="banana" id="banana">
+            </div>
+            <div>
+                <label for="apple">Apple</label>
+                <input type="checkbox" name="apple" id="apple">
+            </div>
+            <div>
+                <label for="organge">Organge</label>
+                <input type="checkbox" name="organge" id="organge">
+            </div>
+        </div>
+        <div>
+        <!-- If we want users to select one specific food we use radio button. -->
+            Gender:
+            <div>
+                <label for="male">Male</label>
+                <input type="radio" name="gender" id="male" value="male">
+                <!-- It wil be wrong to have "male" as name. Because all the radio buttons need to share one same name. That's is how we know there can be one selective.  -->
+                <!-- With radio buttons we need to specify a value so when we submit it to a form, we know what we are getting back. So if we select gender as male and we click submit, we see the gender is set to male, which corresponds with the value we selected (value="male") for our radio button -->
+            </div>
+            <div>
+                <label for="female">Female</label>
+                <input type="radio" name="gender" id="female" value="female">
+                <!-- It wil be wrong to have "female" as name. Because all the radio buttons need to share one same name. That's is how we know there can be one selective.  -->
+            </div>
+        </div>
+        <div>
+            <label for="eyeColor">Eye Colour:</label>
+            <!-- This not an input element. It's a select element, but it works similar to the other input elements.  -->
+            <!-- By default select only allows us to select one option. But we can use and attribute called "multiple" to select multiple values by holding control and clicking on them. -->
+            <select name="eyeColor" id="eyeColor" multiple>
+                <!-- Id is always going to correspond with the "label for" we have able -->
+                <option value="Green">Green</option>
+                <option label="Blue" value="Blue"></option>
+                <option value="Brown">Brown</option>
+                <option label="Other" value="Other"></option>
+                <!-- We can use the label section and specify green.  -->
+            </select>
+        </div>
+        <div>
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio"></textarea>
+        </div>
+        <!-- Select and Textarea are the only two anomaly type of elements that don't use the input for their element -->
+        
+        <!-- We don't need to create a div for "Hidden input element" because it is completely hidden. We don't even need a lable. We only need an input and specify the type hidden. Nothing shows up on our form, but when we submit the form, we can see the hidden attribute being passed along with the value we specified inside of our HTML. Users are not able to interact at all with hidden inputs. They are great when we do some fancy manipulation in JS or to send something down from our server. -->
+        <input type="hidden" name="hidden" value="hi">
+
+        <div>
+            <label for="file">File</label>
+            <input id="file" type="file" name="file">
+            <!-- First we need to make it so that when we submit this to a server that it's usuful for our server. We need to specify a new attribute on the form action area. It is called "enctype" and we wil have enctype="multipart/form-data". It is essentially saying large files will be sent in multiple parts. So we need to tell our server we're sending in mult parts, our form data into multiple different sections so that it knows to look for multiple secitons of an upload as opposed to one single form upload. This will allow us  to submit our files to uor server. -->
+        </div>
+        <div>
+            <label for="phone">Phone</label>
+            <input type="tel" name="phone" id="phone">
+            <!-- The cool thing about phone field is that if a user is on a phone entering this info, it will give them a nice keypad which is specifically meant for entering phone numbers and not just for entering generic texts.    -->
+        </div>
+        <div>
+            <label for="url">URL</label>
+            <input type="url" name="url" id="url">
+        </div>
+        <div>
+            <label for="color">Color</label>
+            <input type="color" name="color" id="color">
+        </div>
+        <div>
+            <label>
+                Password:
+                <input type="password" name="password" required> 
+                <!-- type="password" hides the password characters -->
+            </label>
+        </div>
+        <button type="reset">Reset</button>
+        <!-- type="reset" sets everything back to its default. The default for us is completely blank-->
+        <button type="submit">Submit</button>
+        <!-- type="submit" submits the current form data -->
+    </form>
+</body>
+</html>
